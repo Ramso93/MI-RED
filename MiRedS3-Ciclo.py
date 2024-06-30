@@ -66,20 +66,29 @@ continuar = True
 while continuar:
 
     #Solicitamos opciÃ³n al usuario
-    escribir_mensaje = str(input("Â¿Deseas escribir un mensaje? (S/N) "))
+    print("*** Acciones ***")
+    print("1.- Escribir un mensaje")
+    print("2.- Modificar nombre")
+    print("0.- Finalizar programa")
+    escribir_mensaje = int(input("Elegir accion: "))
 
     # En caso que sea otra respuesta, vamos a decidir salir.
     # AsÃ­, en la siguiente iteraciÃ³n el ciclo terminarÃ¡
-    if escribir_mensaje == "N" or escribir_mensaje == "n":
+    if escribir_mensaje == 0:
         continuar = False
     #Vamos a aceptar que el usuario ingrese un mensaje cuando escriban "S", "s", o nada
     else:
-        mensaje = input("Vamos a publicar un mensaje. Â¿QuÃ© piensas hoy? ")
-        print()
-        print("--------------------------------------------------")
-        print(nombre, "dice:", mensaje)
-        print("--------------------------------------------------")
-
+        if escribir_mensaje == 1:
+            mensaje = input("Vamos a publicar un mensaje. Â¿QuÃ© piensas hoy? ")
+            print()
+            print("--------------------------------------------------")
+            print(nombre, "dice:", mensaje)
+            print("--------------------------------------------------")
+        elif escribir_mensaje == 2:
+            nombre = input("Nombre: ")
+            print()
+            print("Hola ", nombre, ", bienvenido a Mi Red [otra vez xD]")
+            print()
 
 #Mensaje de salida, una vez que el ciclo ha terminado.
 print("Gracias por usar Mi Red. Â¡Hasta pronto!")
