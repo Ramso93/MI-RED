@@ -12,6 +12,55 @@
 #del perfil del usuario, habrÃ¡s notado que tienes que escribir de nuevo el cÃ³digo necesario
 #con un print por cada dato. El cÃ³digo se verÃ­a como estÃ¡ mÃ¡s abajo.
 
+nombre =""
+agno=-1
+edad = -1
+estatura = 0.0
+estatura_m = -1
+estatura_cm = -1
+num_amigos = -1
+
+def pedirDatos():
+    # Solicitud de nombre
+    nombre = input("Para empezar, dime como te llamas. ")
+    print()
+    print("Hola ", nombre, ", bienvenido a Mi Red")
+    print()
+
+    # CÃ¡lculo de edad
+    agno = int(input("Para preparar tu perfil, dime en quÃ© aÃ±o naciste. "))
+    edad = 2024 - agno - 1
+    print()
+
+    # CÃ¡lculo de estatura
+    estatura = float(input("CuÃ©ntame mÃ¡s de ti, para agregarlo a tu perfil. Â¿CuÃ¡nto mides? DÃ­melo en metros. "))
+    estatura_m = int(estatura)
+    estatura_cm = int((estatura - estatura_m) * 100)
+
+    # Cantidad de amigos
+    num_amigos = int(input("Muy bien. Finalmente, cuÃ©ntame cuantos amigos tienes. "))
+
+def mostrarDatosIni():
+    # Con los datos recolectados escribimos en pantalla un texto que resuma los datos que hemos obtenido
+    print()
+    print("Muy bien,", nombre, ". Entonces podemos crear un perfil con estos datos.")
+    print("--------------------------------------------------")
+    print("Nombre:  ", nombre)
+    print("Edad:    ", edad, "aÃ±os")
+    print("Estatura:", estatura_m, "metros y", estatura_cm, "centÃ­metros")
+    print("Amigos:  ", num_amigos)
+    print("--------------------------------------------------")
+    print("Gracias por la informaciÃ³n. Esperamos que disfrutes con Mi Red")
+    print()
+
+def mostrarDatosPersonales():
+    print("--------------------------------------------------")
+    print("Nombre:   ", nombre)
+    print("Edad:     ", edad, "aÃ±os")
+    print("Estatura: ", estatura_m, "m y ", estatura_cm, "centÃ­metros")
+    print("Amigos:   ", num_amigos)
+    print("--------------------------------------------------")
+
 
 print("Bienvenido a ... ")
 print("""
@@ -22,37 +71,38 @@ print("""
 /_/ /_/ /_/_/  /_/   \___/\__,_/
 
 """)
-
+pedirDatos()
 # Solicitud de nombre
-nombre = input("Para empezar, dime como te llamas. ")
-print()
-print("Hola ", nombre, ", bienvenido a Mi Red")
-print()
+# nombre = input("Para empezar, dime como te llamas. ")
+# print()
+# print("Hola ", nombre, ", bienvenido a Mi Red")
+# print()
 
 # CÃ¡lculo de edad
-agno = int(input("Para preparar tu perfil, dime en quÃ© aÃ±o naciste. "))
-edad = 2017-agno-1
-print()
+# agno = int(input("Para preparar tu perfil, dime en quÃ© aÃ±o naciste. "))
+# edad = 2017-agno-1
+# print()
 
 # CÃ¡lculo de estatura
-estatura = float(input("CuÃ©ntame mÃ¡s de ti, para agregarlo a tu perfil. Â¿CuÃ¡nto mides? DÃ­melo en metros. "))
-estatura_m = int(estatura)
-estatura_cm = int( (estatura - estatura_m)*100 )
+# estatura = float(input("CuÃ©ntame mÃ¡s de ti, para agregarlo a tu perfil. Â¿CuÃ¡nto mides? DÃ­melo en metros. "))
+# estatura_m = int(estatura)
+# estatura_cm = int( (estatura - estatura_m)*100 )
 
 # Cantidad de amigos
-num_amigos = int(input("Muy bien. Finalmente, cuÃ©ntame cuantos amigos tienes. "))
+# num_amigos = int(input("Muy bien. Finalmente, cuÃ©ntame cuantos amigos tienes. "))
 
+mostrarDatosIni()
 #Con los datos recolectados escribimos en pantalla un texto que resuma los datos que hemos obtenido
-print()
-print("Muy bien,", nombre, ". Entonces podemos crear un perfil con estos datos.")
-print("--------------------------------------------------")
-print("Nombre:  ", nombre)
-print("Edad:    ", edad, "aÃ±os")
-print("Estatura:", estatura_m, "metros y", estatura_cm, "centÃ­metros")
-print("Amigos:  ", num_amigos)
-print("--------------------------------------------------")
-print("Gracias por la informaciÃ³n. Esperamos que disfrutes con Mi Red")
-print()
+# print()
+# print("Muy bien,", nombre, ". Entonces podemos crear un perfil con estos datos.")
+# print("--------------------------------------------------")
+# print("Nombre:  ", nombre)
+# print("Edad:    ", edad, "aÃ±os")
+# print("Estatura:", estatura_m, "metros y", estatura_cm, "centÃ­metros")
+# print("Amigos:  ", num_amigos)
+# print("--------------------------------------------------")
+# print("Gracias por la informaciÃ³n. Esperamos que disfrutes con Mi Red")
+# print()
 
 #Esta opcion permite entrar al ciclo. Solo interesa que no sea 0.
 opcion = 1
@@ -85,45 +135,48 @@ while opcion != 0:
 
     #CÃ³digo para la opciÃ³n 3. Publicar los datos del perfil del usuario.
     elif opcion == 3:
-        print("--------------------------------------------------")
-        print("Nombre:   ", nombre)
-        print("Edad:     ", edad, "aÃ±os")
-        print("Estatura: ", estatura_m, "m y ", estatura_cm, "centÃ­metros")
-        print("Amigos:   ", num_amigos)
-        print("--------------------------------------------------")
+        mostrarDatosPersonales()
+        # print("--------------------------------------------------")
+        # print("Nombre:   ", nombre)
+        # print("Edad:     ", edad, "aÃ±os")
+        # print("Estatura: ", estatura_m, "m y ", estatura_cm, "centÃ­metros")
+        # print("Amigos:   ", num_amigos)
+        # print("--------------------------------------------------")
 
     #CÃ³digo para la opciÃ³n 4. Actualizar los datos del perfil del usuario.
     elif opcion == 4:
+        pedirDatos()
+        mostrarDatosIni()
         #Repetimos el cÃ³digo para solicitar datos
         # Solicitud de nombre
-        nombre = input("Para empezar, dime como te llamas. ")
-        print()
-        print("Hola ", nombre, ", bienvenido a Mi Red")
-        print()
+        # nombre = input("Para empezar, dime como te llamas. ")
+        # print()
+        # print("Hola ", nombre, ", bienvenido a Mi Red")
+        # print()
 
         # CÃ¡lculo de edad
-        agno = int(input("Para preparar tu perfil, dime en quÃ© aÃ±o naciste. "))
-        edad = 2017-agno-1
-        print()
+        # agno = int(input("Para preparar tu perfil, dime en quÃ© aÃ±o naciste. "))
+        # edad = 2017-agno-1
+        # print()
+        #
+        # # CÃ¡lculo de estatura
+        # estatura = float(input("CuÃ©ntame mÃ¡s de ti, para agregarlo a tu perfil. Â¿CuÃ¡nto mides? DÃ­melo en metros. "))
+        # estatura_m = int(estatura)
+        # estatura_cm = int( (estatura - estatura_m)*100 )
+        #
+        # # Cantidad de amigos
+        # num_amigos = int(input("Muy bien. Finalmente, cuÃ©ntame cuantos amigos tienes. "))
 
-        # CÃ¡lculo de estatura
-        estatura = float(input("CuÃ©ntame mÃ¡s de ti, para agregarlo a tu perfil. Â¿CuÃ¡nto mides? DÃ­melo en metros. "))
-        estatura_m = int(estatura)
-        estatura_cm = int( (estatura - estatura_m)*100 )
-
-        # Cantidad de amigos
-        num_amigos = int(input("Muy bien. Finalmente, cuÃ©ntame cuantos amigos tienes. "))
-
-        print()
-        print("Muy bien,", nombre, ". Entonces podemos crear un perfil con estos datos.")
-        # Repetimos el cÃ³digo para mostrar los datos del usuario.
-        print("--------------------------------------------------")
-        print("Nombre:  ", nombre)
-        print("Edad:    ", edad, "aÃ±os")
-        print("Estatura:", estatura_m, "metros y", estatura_cm, "centÃ­metros")
-        print("Amigos:  ", num_amigos)
-        print("--------------------------------------------------")
-        print()
+        # print()
+        # print("Muy bien,", nombre, ". Entonces podemos crear un perfil con estos datos.")
+        # # Repetimos el cÃ³digo para mostrar los datos del usuario.
+        # print("--------------------------------------------------")
+        # print("Nombre:  ", nombre)
+        # print("Edad:    ", edad, "aÃ±os")
+        # print("Estatura:", estatura_m, "metros y", estatura_cm, "centÃ­metros")
+        # print("Amigos:  ", num_amigos)
+        # print("--------------------------------------------------")
+        # print()
 
     #CÃ³digo para la opciÃ³n 0. Salir.
     elif opcion == 0:
