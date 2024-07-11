@@ -47,7 +47,7 @@ def obtener_datos():
 
 def mostrar_perfil(nombre, edad, estatura_m, estatura_cm, sexo, pais, num_amigos):
     print("--------------------------------------------------")
-    print("Nombre:   ", nombre)
+    print("Nombre:   ", nombre.strip())
     print("Edad:     ", edad, "aÃ±os")
     print("Estatura: ", estatura_m, "m y ", estatura_cm, "centÃ­metros")
     print("Sexo:     ", sexo)

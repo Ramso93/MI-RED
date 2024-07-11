@@ -31,7 +31,6 @@
 #Si no existe, entonces seguimos comportÃ¡ndonos como antes, lo tratamos como un usuario nuevo, y preguntamos
 #sus datos para luego crear un archivo.
 
-
 #Recordemos que en este mÃ³dulo estÃ¡n todos las funciones adicionales que hemos creado.
 import S5Red as Red
 #El mÃ³dulo 'os' nos permitirÃ¡ consultar si un archivo existe.
@@ -45,16 +44,20 @@ print("Hola ", nombre, ", bienvenido a Mi Red")
 if os.path.isfile(nombre+".user"):
     #Esto lo hacemos si ya habÃ­a un usuario con ese nombre
     print("Leyendo datos de usuario", nombre, "desde archivo.")
+
+    #if linea[-1] == '\n' || linea[-1] == ' ':
+    #    linea = linea[:-1]
+
     archivo_usuario = open(nombre+".user","r")
-    nombre = archivo_usuario.readline()
-    edad = int(archivo_usuario.readline())
-    estatura = float(archivo_usuario.readline())
+    nombre = archivo_usuario.readline().rstrip('\n')
+    edad = int(archivo_usuario.readline().rstrip('\n'))
+    estatura = float(archivo_usuario.readline().rstrip('\n'))
     estatura_m = int(estatura)
     estatura_cm = int( (estatura - estatura_m)*100 )
-    sexo = archivo_usuario.readline()
-    pais = archivo_usuario.readline()
-    num_amigos = int(archivo_usuario.readline())
-    estado = archivo_usuario.readline()
+    sexo = archivo_usuario.readline().rstrip('\n')
+    pais = archivo_usuario.readline().rstrip('\n')
+    num_amigos = int(archivo_usuario.readline().rstrip('\n'))
+    estado = archivo_usuario.readline().rstrip('\n')
     #Una vez que hemos leido los datos del usuario no debemos olvidar cerrar el archivo
     archivo_usuario.close()
 
@@ -68,12 +71,12 @@ else:
     num_amigos = Red.obtener_num_amigos()
     estado = ""
 
-#En ambos casos, al llegar aquÃ­ ya conocemos los datos del usuario
+# En ambos casos, al llegar aquÃ­ ya conocemos los datos del usuario
 print("Muy bien. Estos son los datos de tu perfil.")
 Red.mostrar_perfil(nombre, edad, estatura_m, estatura_cm, sexo, pais, num_amigos)
 Red.mostrar_mensaje(nombre, None, estado)
 
-#Ahora podemos mostrar el menu y consultar las opciones
+# Ahora podemos mostrar el menu y consultar las opciones
 opcion = 1
 while opcion != 0:
     opcion = Red.opcion_menu()
