@@ -1,3 +1,5 @@
+#El mÃ³dulo 'os' nos permitirÃ¡ consultar si un archivo existe.
+import os
 
 def mostrar_bienvenida():
     print("Bienvenido a ... ")
@@ -79,3 +81,32 @@ def mostrar_mensaje(origen, destinatario, mensaje):
     else:
         print(origen, "dice:", "@"+destinatario, mensaje)
     print("--------------------------------------------------")
+
+
+def existe_user(nombre):
+    if os.path.isfile(nombre + ".user"):
+        return True
+    else:
+        return False
+
+def leer_user(nombre):
+    if os.path.isfile(nombre + ".user"):
+        # Esto lo hacemos si ya habÃ­a un usuario con ese nombre
+        print("Leyendo datos de usuario", nombre, "desde archivo.")
+
+        # if linea[-1] == '\n' || linea[-1] == ' ':
+        #    linea = linea[:-1]
+
+        archivo_usuario = open(nombre + ".user", "r")
+        nombre = archivo_usuario.readline().rstrip('\n')
+        edad = int(archivo_usuario.readline().rstrip('\n'))
+        estatura = float(archivo_usuario.readline().rstrip('\n'))
+        estatura_m = int(estatura)
+        estatura_cm = int((estatura - estatura_m) * 100)
+        sexo = archivo_usuario.readline().rstrip('\n')
+        pais = archivo_usuario.readline().rstrip('\n')
+        num_amigos = int(archivo_usuario.readline().rstrip('\n'))
+        estado = archivo_usuario.readline().rstrip('\n')
+        # Una vez que hemos leido los datos del usuario no debemos olvidar cerrar el archivo
+        archivo_usuario.close()
+        return (nombre, edad, estatura_m, estatura_cm, sexo, pais, num_amigos, estado)
