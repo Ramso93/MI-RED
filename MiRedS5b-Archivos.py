@@ -55,7 +55,13 @@ while opcion != 0:
         pais = Red.obtener_pais()
         num_amigos = Red.obtener_num_amigos()
         Red.mostrar_perfil(nombre, edad, estatura_m, estatura_cm, sexo, pais, num_amigos)
-
+    elif opcion == 5:
+        nombre_new = Red.obtener_nombre()
+        if Red.existe_archivo(nombre_new+".user"):
+            print("Leyendo datos de usuario", nombre_new, "desde archivo.")
+            (nombre, edad, estatura_m, estatura_cm, sexo, pais, num_amigos, estado) = Red.leer_usuario(nombre_new)
+        else:
+            print("Info: el nombre de usuario ", nombre_new, " no ha sido encontrado en el sistema.")
     elif opcion == 0:
         print("Has decidido salir. Guardando perfil en ",nombre+".user")
         Red.escribir_usuario(nombre, edad, estatura_m, estatura_cm, sexo, pais, num_amigos, estado)

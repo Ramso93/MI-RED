@@ -63,9 +63,10 @@ def opcion_menu():
     print("  2. Escribir un mensaje solo a algunos amigos")
     print("  3. Mostrar los datos de perfil")
     print("  4. Actualizar el perfil de usuario")
+    print("  5. Cambiar de usuario")
     print("  0. Salir")
     opcion = int(input("Ingresa una opciÃ³n: "))
-    while opcion < 0 or opcion > 4:
+    while opcion < 0 or opcion > 5:
         print("No conozco la opciÃ³n que has ingresado. IntÃ©ntalo otra vez.")
         opcion = int(input("Ingresa una opciÃ³n: "))
     return opcion
